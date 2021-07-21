@@ -62,7 +62,7 @@ function Navbar(props) {
             <li className="nav-item mr-4">
               <Link style={{color:'white'}}
                 className="nav-link"
-                to="/problemlist"
+                to="/new"
                 id="compete"
                 onClick={() => setPage("compete")}
               >
