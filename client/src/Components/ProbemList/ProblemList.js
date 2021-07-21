@@ -15,6 +15,7 @@ class ProblemList extends React.Component {
   }
 
   componentDidMount() {
+    console.log('problem list render')
     const tags = this.props.location.state ? this.props.location.state : 'Arrays'
     axios.post('http://54.198.168.63/getData/',{
       "type" : "list",
@@ -22,8 +23,6 @@ class ProblemList extends React.Component {
       'level': ''
     })
       .then(reponse => {
-        
-        console.log(reponse.data.map(d => console.log(d)))
         this.setState(
           { questions:reponse.data }
         )
@@ -34,7 +33,6 @@ class ProblemList extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState){
-    console.log(this.state.questions)
     if (prevState.level !== this.state.level){
         console.log('required new request')
         axios.post('http://54.198.168.63/getData/',{
@@ -42,7 +40,6 @@ class ProblemList extends React.Component {
       "tags" : ["String"],
     })
       .then(reponse => {
-        console.log(reponse.data)
         this.setState(
           { questions:reponse.data.filter(question => question.level === this.state.level)}
         )
@@ -60,7 +57,6 @@ class ProblemList extends React.Component {
   render(){
     const {questions} = this.state;
     return (
-      // this.state.isAuth ?
       <div>
         <h1 className="container" style={{textAlign:'center', marginTop: '4%'}}>Problem List</h1>
         <Dropdown onChange={value => this.setState(
@@ -74,8 +70,6 @@ class ProblemList extends React.Component {
             ):<div style={{display:'flex', justifyContent: 'center', marginTop: '5%',height: '50vh'}}><Spinner/></div>
           }
       </div>
-      // :
-      // <div style={{display:'flex', justifyContent: 'center', marginTop: '5%',height: '50vh'}}><Spinner/></div>
     )
   }
 }
