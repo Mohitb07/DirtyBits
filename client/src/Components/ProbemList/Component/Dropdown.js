@@ -33,7 +33,6 @@ export default function SimpleSelect(props) {
           id="demo-simple-select"
           value={level}
           onChange={handleChange}
-          // onChange={(event) => props.onChange(event.target.value)}
         >
           <MenuItem value={'E'}>Easy</MenuItem>
           <MenuItem value={'M'}>Medium</MenuItem>
