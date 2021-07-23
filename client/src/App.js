@@ -27,6 +27,7 @@ import Leaderboard from "./Components/Leaderboard/Leaderboard";
 // const Blog = lazy(()=>import('./Blog/Blog'))
 import Problems from './Components/ProbemList/Problems'
 import Blog from './Blog/Blog'
+import QuestionList from "./Components/ProbemList/QuestionList";
 const Admin = lazy(()=> import('./Admin/Admin'))
 // const Leaderboard = lazy(()=> import('./Components/Leaderboard/Leaderboard'))
 
@@ -51,7 +52,7 @@ class App extends Component {
             (props) => (<ProblemList {...props} auth={}/>)
           }/> */}
           <Route path="/problem" exact component={ProblemView}/>
-          <Route path="/problemlist" exact component={ProblemList}/>
+          <Route path="/problemlist" exact component={QuestionList}/>
           <Route path="/settings" exact component={settings}/>
           <Suspense fallback={<div><Loader/></div>}>
             <Route path="/dashboard" exact component={Admin}/>
