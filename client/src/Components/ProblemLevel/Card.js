@@ -1,4 +1,4 @@
-import React , {useEffect} from 'react';
+import React , {useEffect, memo} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -25,10 +25,11 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ImgMediaCard(props) {
+ function ImgMediaCard(props) {
   const classes = useStyles();
 
   useEffect(() => {
+    console.log('card re-render')
     AOS.init({
       duration : 1000
     });
@@ -64,3 +65,5 @@ export default function ImgMediaCard(props) {
     </Card>
   );
 }
+
+export default memo(ImgMediaCard);
