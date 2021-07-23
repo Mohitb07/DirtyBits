@@ -5,7 +5,7 @@ import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import { IconButton } from '@material-ui/core'
 import BookmarkOutlinedIcon from '@material-ui/icons/BookmarkOutlined';
 
-class Card extends React.Component {
+class Card extends React.PureComponent {
     constructor(props){
         super(props)
         this.state = {
