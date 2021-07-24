@@ -1,12 +1,13 @@
 $fontStyle: "Public Sans", sans-serif;
 
 $nav-bg-1: rgb(67, 67, 67);
-$nav-bg-2: linear-gradient(
-  90deg,
-  rgb(8, 8, 8) 10%,
-  rgb(6, 6, 7) 56%,
-  rgb(17, 17, 17) 100%
-);
+// $nav-bg-2: linear-gradient(
+//   90deg,
+//   rgb(250, 248, 248) 10%,
+//   rgb(251, 251, 253) 56%,
+//   rgb(250, 245, 245) 100%
+// );
+$nav-bg-2: #39424e;
 
 $page-bg-1: black;
 $page-bg-2: black;
