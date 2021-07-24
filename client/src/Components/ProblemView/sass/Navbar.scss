@@ -7,8 +7,9 @@
 }
 
 .textFont {
-  font-family: "Public Sans", sans-serif;
-  font-weight: bold;
+  font-family: "Lato";
+  font-weight: 500;
+  font-size: 20px;
 }
 
 .navbar-light .navbar-nav .active > .nav-link,
@@ -16,10 +17,8 @@
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show > .nav-link {
   color: $text-color;
-  border-bottom: 1px solid white;
-  
+  border-bottom: 5px solid #1ba94c;
 }
-
 
 #profileDrop {
   color: $text-color;
