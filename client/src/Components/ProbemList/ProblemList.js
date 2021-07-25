@@ -23,6 +23,7 @@ class ProblemList extends React.Component {
       'level': ''
     })
       .then(reponse => {
+        console.log(reponse)
         this.setState(
           { questions:reponse.data }
         )
@@ -40,6 +41,7 @@ class ProblemList extends React.Component {
       "tags" : ["String"],
     })
       .then(reponse => {
+
         this.setState(
           { questions:reponse.data.filter(question => question.level === this.state.level)}
         )
