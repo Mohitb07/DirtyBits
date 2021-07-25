@@ -11,6 +11,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import SettingsIcon from '@material-ui/icons/Settings';
 import BookmarksIcon from '@material-ui/icons/Bookmarks';
+import Login from "../Buttons/Login";
 
 function Navbar(props) {
   const [currentPage, setCurrentPage] = useState("home");
@@ -49,7 +50,7 @@ function Navbar(props) {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item mr-4">
+            <li className="nav-item mr-4 textFont">
               <Link style={{color:'white'}}
                 className="nav-link active"
                 to="/"
@@ -59,7 +60,7 @@ function Navbar(props) {
                 Home
               </Link>
             </li>
-            <li className="nav-item mr-4">
+            <li className="nav-item mr-4 textFont">
               <Link style={{color:'white'}}
                 className="nav-link"
                 to="/new"
@@ -69,10 +70,15 @@ function Navbar(props) {
                 Compete
               </Link>
             </li>
-            <li className="nav-item mr-4">
+            <li className="nav-item mr-4 textFont">
               <Link style={{color:'white'}}
                 className="nav-link"
-                to="/problemlist"
+                to={
+                  {
+                    pathname:'/problemlist',
+                    state : 'Arrays'
+                  }
+                }
                 id="practice"
                 onClick={() => setPage("practice")}
               >
@@ -89,7 +95,7 @@ function Navbar(props) {
                 Blogs
               </a>
             </li> */}
-            <li className="nav-item mr-4">
+            <li className="nav-item mr-4 textFont">
               <Link style={{color:'white'}}
                 className="nav-link"
                 to = "/leaderboard"
@@ -106,7 +112,7 @@ function Navbar(props) {
               <li><Avatar img={isAuth.avatar}/></li>
             <li className="nav-item dropdown" id="profileDrop">
               <a style={{color:'white',borderBottomStyle:'none',marginTop:'7px'}}
-                className="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle textFont"
                 href="/#"
                 id="navbarDropdown"
                 role="button"
@@ -142,7 +148,8 @@ function Navbar(props) {
             </li>
           </ul>
             :
-            ''
+            // <Login/>
+            <Button style={{outline:'none', backgroundColor:'#1ba94c', color:'white', fontWeight:'700'}} type="submit" variant="contained">Login</Button>
           }
 
 
