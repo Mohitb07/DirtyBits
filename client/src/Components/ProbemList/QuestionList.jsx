@@ -1,34 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import axios from 'axios';
 
 import Card from './Component/Card';
 import Spinner from './Component/Spinner';
 import Dropdown from './Component/Dropdown';
 
-const QuestionList = (props) => {
+const QuestionList = memo((props) => {
     const [questions, setQuestions] = useState([])              // FOR QUESTIONS
     const [level, setLevel] = useState('')                      // FOR QUESTION'S LEVEL (EASY -> 'E', MEDIUM -> 'M', HARD -> 'H')
-    const [currentTags, setCurrentTags] = useState('Arrays')    // FOR TRACKING QUESTION'S TAG LIKE ('Arrays', 'Stack', 'Linked List')
+    const [currentTags, setCurrentTags] = useState('')    // FOR TRACKING QUESTION'S TAG LIKE ('Arrays', 'Stack', 'Linked List')
+    console.log('outside useEffect')
     useEffect(() => {
-        console.log('question list rendered')
-        const tags = props.location.state ? setCurrentTags(props.location.state) : setCurrentTags(currentTags)
-        
+        console.log('inside useEffect')
+        setCurrentTags(props.location.state)
+        // props.location.state ? setCurrentTags(props.location.state) : setCurrentTags(currentTags)
         const fetchQuestions = async() => {
-            try {
-                // FETCHING QUESTIONS ARRAYS WITHOUT LEVEL FOR NOW
-                const response = await axios.post('http://54.198.168.63/getData/', {
-                    'type' : 'list',
-                    'tags' : [currentTags],
-                })
-                setQuestions([...response.data])
-
-            }catch(error) {
-                console.log('Error', error)
+            if(currentTags.length){
+                try {
+                    // FETCHING QUESTIONS ARRAYS WITHOUT LEVEL FOR NOW
+                    const response = await axios.post('http://54.198.168.63/getData/', {
+                        'type' : 'list',
+                        'tags' : [currentTags],
+                    })
+                    setQuestions([...response.data])
+    
+                }catch(error) {
+                    console.log('Error', error)
+                }
             }
         }
 
         fetchQuestions()
-    },[currentTags, props.location.state])
+
+
+    },[currentTags])
 
     return (
         <>
@@ -43,5 +48,5 @@ const QuestionList = (props) => {
           }
         </>
     )
-}
+})
 export default QuestionList;
