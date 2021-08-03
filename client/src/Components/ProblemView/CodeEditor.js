@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { memo, useRef, useState } from "react";
 import Editor from "@monaco-editor/react";
 import { FillSpinner as Loader } from "react-spinners-kit";
 import { RotateSpinner } from "react-spinners-kit";
@@ -17,7 +17,6 @@ const CodeEditor = (props) => {
   var mapping = { python: "p3", cpp: "CP", p3:"P3" };
   var score;
   var user_id = parseInt(props.uid);
-  console.log('user id is ', user_id)
 
   const [editorHeight, setEditorHeight] = useState("78vh");
 
@@ -222,4 +221,4 @@ const CodeEditor = (props) => {
   );
 };
 
-export default CodeEditor;
+export default memo(CodeEditor);

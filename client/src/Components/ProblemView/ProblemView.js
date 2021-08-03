@@ -1,4 +1,4 @@
-import React from "react";
+import React , {memo} from "react";
 import ViewArea from "./ViewArea";
 import "./sass/ProblemView.css";
 import { useSelector } from 'react-redux'
@@ -8,6 +8,7 @@ function ProblemView(props) {
   const isAuth = useSelector((state)=>state.auth)
   const id = questionId;
   // const uid = isAuth._id;
+  console.log('problem view')
   return (
     isAuth ?
     <div id="pageDiv">
@@ -18,4 +19,4 @@ function ProblemView(props) {
   );
 }
 
-export default ProblemView;
+export default memo(ProblemView);

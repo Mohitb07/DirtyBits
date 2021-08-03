@@ -1,10 +1,11 @@
 import Axios from "axios";
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import "./sass/ProblemArea.css";
 import Iframe from "react-iframe";
 import { StageSpinner as ProbSpinner } from "react-spinners-kit";
 
 function ProblemArea(props) {
+  console.log('p area as well')
   const endpoint = "http://54.198.168.63/";
 
   const [totaltc, setTotaltc] = useState(0);
@@ -16,7 +17,6 @@ function ProblemArea(props) {
 
   const showTCIn = (tc) => {
     var inps = new Array();
-    console.log(data.id)
     for (var i = 1; i <= tc; i++) {
       inps.push(
         endpoint +
@@ -27,7 +27,6 @@ function ProblemArea(props) {
           ".txt"
       );
     }
-    console.log('inps value', inps)
     const renderinp = inps.map((item, index) => {
       return (
         <>
@@ -109,4 +108,4 @@ function ProblemArea(props) {
   );
 }
 
-export default ProblemArea;
+export default memo(ProblemArea);

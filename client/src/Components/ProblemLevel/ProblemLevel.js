@@ -32,12 +32,12 @@ class ProblemLevel extends React.Component {
                     steps={['Hello Programmers', 5000]}
                     loop={Infinity}
                     wrapper="h5"
-                    >
+                >
                 </Typical>                               
                     <p> 
                         Learn Data Structures and Algorithms with us.
                     </p>
-                    <div style={{maxWidth:'250px', position:"absolute", top:'140%', left:"65%", transform:"translate(-110%,-50%)",}}>
+                    <div className="login-btn">
                         <Loginbutton/>                        
                     </div>
                 </div>
